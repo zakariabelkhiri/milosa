@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zakaria Belkhiri - Photographer & Visual Artist</title>
+    <style>
+        /* Add Circular-Black font via @font-face */
+        @font-face {
+            font-family: 'Circular-Black';
+            src: url('Circular-Black.woff2') format('woff2'),
+                 url('Circular-Black.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
+            font-family: 'Circular-Black', sans-serif; /* Apply the Circular-Black font */
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f8;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px 15px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .profile-picture-header {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-text h1 {
+            margin: 0;
+        }
+
+        .header-text p {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        nav {
+            background-color: #34495e;
+            padding: 10px;
+            text-align: center;
+            width: 100%;
+        }
+
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #f4f7f8;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #1abc9c;
+        }
+
+        .section {
+            padding: 30px;
+            margin: 20px auto;
+            max-width: 900px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+        }
+
+        .gallery-grid, .editing-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Limits to two columns */
+            gap: 20px;
+            padding-top: 20px;
+            justify-items: center;
+        }
+
+        .gallery-item, .editing-item {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            object-fit: cover;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+
+        .contact-section {
+            text-align: center;
+            padding: 20px 10px;
+        }
+
+        .contact-title {
+            margin-bottom: 15px;
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .contact-info {
+            font-size: 16px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-info p {
+            margin: 0;
+        }
+
+        .contact-info a {
+            text-decoration: none;
+            color: #2c3e50;
+            margin: 0 5px;
+            transition: color 0.3s;
+        }
+
+        .contact-info a:hover {
+            color: #1abc9c;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #2c3e50;
+            color: white;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 80%;
+            margin: auto;
+            object-fit: contain;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Profile Picture -->
+    <header>
+        <div class="header-content">
+            <img src="p.jpg" alt="Zakaria Belkhiri" class="profile-picture-header">
+            <div class="header-text">
+                <h1>Zakaria Belkhiri</h1>
+                <p>Photographer & Visual Artist</p>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <a href="#about">About Me</a>
+        <a href="#photography">Photography</a>
+        <a href="#editing">Editing</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <h2>About Me</h2>
+        <p>I'm Zakaria Belkhiri, a 19-year-old photographer and editor. This is my page—feel free to contact me :3</p>
+    </section>
+
+    <!-- Photography Gallery Section -->
+    <section id="photography" class="section">
+        <h2>Photography</h2>
+        <div class="gallery-grid">
+            <img src="2.jpg" alt="Photography 1" class="gallery-item" onclick="openModal(this)">
+            <img src="4.jpg" alt="Photography 2" class="gallery-item" onclick="openModal(this)">
+            <img src="3.jpg" alt="Photography 3" class="gallery-item" onclick="openModal(this)">
+            <img src="c.jpg" alt="Photography 4" class="gallery-item" onclick="openModal(this)">
+        </div>
+    </section>
+
+    <!-- Editing Showcase Section -->
+    <section id="editing" class="section">
+        <h2>Editing</h2>
+        <div class="editing-grid">
+            <img src="p2.png" alt="Edited Photo 1" class="editing-item" onclick="openModal(this)">
+            <img src="p1.png" alt="Edited Photo 2" class="editing-item" onclick="openModal(this)">
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact-section">
+        <h2 class="contact-title">Contact</h2>
+        <div class="contact-info">
+            <p>
+                Email: <a href="mailto:zakria.belkhiri@uit.ac.ma">zakria.belkhiri@uit.ac.ma</a> | 
+                Instagram: <a href="https://www.instagram.com/mil00ss_" target="_blank">@mil00ss_</a> | 
+                Phone: 0604837658
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Zakaria Belkhiri. just test.</p>
+    </footer>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImg">
+    </div>
+
+    <script>
+        // Open the modal
+        function openModal(imgElement) {
+            var modal = document.getElementById("myModal");
+            var modalImg = document.getElementById("modalImg");
+            modal.style.display = "flex";
+            modalImg.src = imgElement.src;
+        }
+
+       
